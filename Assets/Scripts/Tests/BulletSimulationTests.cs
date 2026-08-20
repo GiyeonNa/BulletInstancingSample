@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Xml.Serialization;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using UnityEngine;
-using UnityEngine.TestTools;
 
 public class BulletSimulationTests
 {
@@ -36,15 +33,12 @@ public class BulletSimulationTests
     [Test]
     public void swap_remove_정합()
     {
-        /* 3발을 서로 구분되는 데이터로 쏘세요 (예: velocity를 각각 다르게). 가운데
-  놈만 죽게 만들려면? lifetime을 가운데만 짧게 주면 됩니다. Tick 후에: Count가 2인지 + 남은 두 탄환이 (순서는
-  바뀌었어도) 정확히 1번·3번의 데이터인지 sim.Bullets[...]로 확인.*/
-
         var sim = new BulletSimulation(10, new Rect(-10, -10, 20, 20));
         sim.Fire(Vector3.zero, Vector3.right, 2f);
         sim.Fire(Vector3.zero, Vector3.right*0.5f, 0.5f);
         sim.Fire(Vector3.zero, Vector3.right * 2f, 2f);
         sim.Tick(1f);
+        Assert.AreEqual(2, sim.Count);
         Assert.AreEqual(Vector3.right, sim.Bullets[0].velocity);
         Assert.AreEqual(Vector3.right * 2f, sim.Bullets[1].velocity);
 
