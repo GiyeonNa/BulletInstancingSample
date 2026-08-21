@@ -20,6 +20,8 @@ public class BulletSystemDriver : MonoBehaviour
     private float _aimDeg;
     private Vector3 _scale;       //두 모드가 같은 값을, 같은 시점에 읽도록 캐시
 
+    public int ActiveBullets => _sim != null ? _sim.Count : 0;  //측정 오버레이용 읽기 전용
+
     void Start()
     {
         _scale = Vector3.one * bulletScale;
