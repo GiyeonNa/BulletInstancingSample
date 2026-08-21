@@ -12,7 +12,7 @@
 | 메인스레드 | 7.5~8.0 ms | 9.5~10.0 ms |
 
 - 탄환 800발이 드로우콜에 더하는 비용: **+2 vs +800 (약 100배)**
-- 측정 환경: Unity 6000.0.77f1 · URP (Universal Renderer) · 에디터 게임 뷰 · 포스트 프로세싱/SSAO 제거 · [CPU/GPU 모델명]
+- 측정 환경: Unity 6000.0.77f1 · URP (Universal Renderer) · 에디터 게임 뷰 · 포스트 프로세싱/SSAO 제거 · i5-13400F / RTX 4060 Ti
 
 ![탄막 시연](Docs/gameview.png)
 
